@@ -1,0 +1,83 @@
+﻿@model LandscapeWebApp.Models.Booking
+
+@{
+    ViewData["Title"] = "Edit Booking";
+}
+
+<div class="min-h-screen bg-gray-50 p-8">
+    <div class="container mx-auto">
+        <!-- Header Section -->
+        <h1 class="text-4xl font-bold text-blue-600 mb-6">✏️ Edit Booking</h1>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <!-- Form Section -->
+            <form asp-action="Edit" class="space-y-6">
+                <div asp-validation-summary="ModelOnly" class="text-red-500"></div>
+                <input type="hidden" asp-for="BookingId" />
+
+                <!-- User Selection (Required) -->
+                <div>
+                    <label asp-for="UserId" class="block text-gray-700 font-medium mb-2">👤 User</label>
+                    <select asp-for="UserId" asp-items="ViewBag.UserId"
+                            class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300" required>
+                        <option value="">-- Select User --</option>
+                    </select>
+                    <span asp-validation-for="UserId" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Service Selection (Required) -->
+                <div>
+                    <label asp-for="ServiceId" class="block text-gray-700 font-medium mb-2">🛎 Service</label>
+                    <select asp-for="ServiceId" asp-items="ViewBag.ServiceId"
+                            class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300" required>
+                        <option value="">-- Select Service --</option>
+                    </select>
+                    <span asp-validation-for="ServiceId" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Booking Date (No Past Date) -->
+                <div>
+                    <label asp-for="BookingDate" class="block text-gray-700 font-medium mb-2">📅 Booking Date</label>
+                    <input asp-for="BookingDate" type="date"
+                           class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300"
+                           min="@DateTime.Now.ToString("yyyy-MM-dd")" required />
+                    <span asp-validation-for="BookingDate" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Status (Max 50 Characters) -->
+                <div>
+                    <label asp-for="Status" class="block text-gray-700 font-medium mb-2">🔎 Status</label>
+                    <input asp-for="Status"
+                           class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300"
+                           maxlength="50" required />
+                    <span asp-validation-for="Status" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Created At (Future Dates Allowed) -->
+                <div>
+                    <label asp-for="CreatedAt" class="block text-gray-700 font-medium mb-2">🕰 Created At</label>
+                    <input asp-for="CreatedAt" type="datetime-local"
+                           class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-300" required />
+                    <span asp-validation-for="CreatedAt" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Submit and Back Buttons -->
+                <div class="flex space-x-4">
+                    <!-- Save Button -->
+                    <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300">
+                        💾 Save
+                    </button>
+
+                    <!-- Back to List Button -->
+                    <a asp-action="Index" class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition duration-300">
+                        ⬅️ Back to List
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

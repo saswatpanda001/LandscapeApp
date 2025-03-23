@@ -1,0 +1,65 @@
+﻿@model List<LandscapeWebApp.Models.User>
+
+@{
+    ViewData["Title"] = "Bulk Delete Users";
+}
+
+<div class="min-h-screen bg-gray-50 p-8">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+        <h1 class="text-2xl font-bold text-red-600">Bulk Delete Users</h1>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <p class="text-green-600">@TempData["SuccessMessage"]</p>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="text-red-600">@TempData["ErrorMessage"]</p>
+        }
+
+        <form method="post" asp-action="BulkDeleteUsers">
+            <table class="w-full mt-6 border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="selectAll" class="mr-2" />
+                            Select All
+                        </th>
+                        <th class="border p-2">Name</th>
+                        <th class="border p-2">Email</th>
+                        <th class="border p-2">Phone</th>
+                        <th class="border p-2">Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td class="border p-2">
+                                <input type="checkbox" name="userIds" value="@user.UserId" class="userCheckbox" />
+                            </td>
+                            <td class="border p-2">@user.Name</td>
+                            <td class="border p-2">@user.Email</td>
+                            <td class="border p-2">@user.Phone</td>
+                            <td class="border p-2">@user.Role</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <button type="submit"
+                    class="mt-6 bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">
+                Delete Selected Users
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Select All Checkbox
+    document.getElementById('selectAll').addEventListener('change', function () {
+        const checkboxes = document.querySelectorAll('.userCheckbox');
+        checkboxes.forEach(cb => cb.checked = this.checked);
+    });
+</script>

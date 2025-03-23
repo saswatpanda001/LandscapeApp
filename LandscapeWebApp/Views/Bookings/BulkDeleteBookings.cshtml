@@ -1,0 +1,69 @@
+﻿@model List<LandscapeWebApp.Models.Booking>
+
+@{
+    ViewData["Title"] = "Bulk Delete Bookings";
+}
+
+<div class="min-h-screen bg-gray-50 p-8">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+        <h1 class="text-2xl font-bold text-red-600">Bulk Delete Bookings</h1>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <p class="text-green-600">@TempData["SuccessMessage"]</p>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <p class="text-red-600">@TempData["ErrorMessage"]</p>
+        }
+
+        <form method="post" asp-action="BulkDeleteBookings">
+            <table class="w-full mt-6 border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="selectAll" class="mr-2" />
+                            Select All
+                        </th>
+                        <th class="border p-2">Booking ID</th>
+                        <th class="border p-2">User</th>
+                        <th class="border p-2">Service</th>
+                        <th class="border p-2">Booking Date</th>
+                        <th class="border p-2">Status</th>
+                        <th class="border p-2">Created At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model)
+                    {
+                        <tr>
+                            <td class="border p-2">
+                                <input type="checkbox" name="bookingIds" value="@booking.BookingId" class="bookingCheckbox" />
+                            </td>
+                            <td class="border p-2">@booking.BookingId</td>
+                            <td class="border p-2">@booking.User.Name</td>
+                            <td class="border p-2">@booking.Service.ServiceName</td>
+                            <td class="border p-2">@booking.BookingDate.ToShortDateString()</td>
+                            <td class="border p-2">@booking.Status</td>
+                            <td class="border p-2">@booking.CreatedAt.ToShortDateString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <button type="submit"
+                    class="mt-6 bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">
+                Delete Selected Bookings
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Select All Checkbox
+    document.getElementById('selectAll').addEventListener('change', function () {
+        const checkboxes = document.querySelectorAll('.bookingCheckbox');
+        checkboxes.forEach(cb => cb.checked = this.checked);
+    });
+</script>

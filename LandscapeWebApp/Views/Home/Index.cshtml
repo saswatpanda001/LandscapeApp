@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landscape WebApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-green-600 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-bold">LandscapeWebApp</a>
+            <ul class="flex space-x-6">
+                <li><a href="#features" class="text-white hover:text-gray-200">Features</a></li>
+                <li><a href="/Account/Signup" class="text-white hover:text-gray-200">Signup</a></li>
+                <li><a href="/Account/AdminLOgin" class="text-white hover:text-gray-200">Admin</a></li>
+                <li><a href="/Account/Login" class="text-white bg-green-800 px-4 py-2 rounded-lg hover:bg-green-700">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="text-center py-20 bg-green-100">
+        <h1 class="text-5xl font-bold text-green-700">Welcome to LandscapeWebApp</h1>
+        <p class="mt-4 text-lg text-gray-600">Your all-in-one solution for landscape management</p>
+        <a href="#features" class="mt-8 inline-block bg-green-600 text-white text-lg px-6 py-3 rounded-lg hover:bg-green-700">Explore Features</a>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="container mx-auto py-20">
+        <h2 class="text-3xl font-bold text-center text-green-700">Why Choose Us?</h2>
+        <div class="mt-12 grid md:grid-cols-3 gap-8">
+            <div class="p-6 bg-white shadow-lg rounded-lg">
+                <h3 class="text-xl font-semibold text-green-700">Efficient Management</h3>
+                <p class="text-gray-600">Track and manage your landscape projects with ease.</p>
+            </div>
+            <div class="p-6 bg-white shadow-lg rounded-lg">
+                <h3 class="text-xl font-semibold text-green-700">Resource Allocation</h3>
+                <p class="text-gray-600">Optimize resource usage for maximum productivity.</p>
+            </div>
+            <div class="p-6 bg-white shadow-lg rounded-lg">
+                <h3 class="text-xl font-semibold text-green-700">Real-Time Updates</h3>
+                <p class="text-gray-600">Stay updated with live project tracking and reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-green-600 py-20 text-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center">About Us</h2>
+            <p class="mt-8 text-center">At LandscapeWebApp, we are dedicated to making landscape management easy and effective. Our platform provides intuitive tools to monitor, plan, and execute projects with precision.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto py-20">
+        <h2 class="text-3xl font-bold text-center text-green-700">Contact Us</h2>
+        <form class="max-w-lg mx-auto mt-8">
+            <label class="block mb-4">
+                <span class="text-gray-700">Name</span>
+                <input type="text" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Enter your name" />
+            </label>
+            <label class="block mb-4">
+                <span class="text-gray-700">Email</span>
+                <input type="email" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Enter your email" />
+            </label>
+            <label class="block mb-4">
+                <span class="text-gray-700">Message</span>
+                <textarea class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Write your message" rows="4"></textarea>
+            </label>
+
+           <a href="/Account/Login">  <button class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">User Login</button></a>
+           <a href="/Account/AdminLogin"> <button class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Admin Login</button></a>
+</form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 text-white text-center py-4">
+        <p>&copy; 2024 LandscapeWebApp. All rights reserved.</p>
+    </footer>
+</body>
+</html>

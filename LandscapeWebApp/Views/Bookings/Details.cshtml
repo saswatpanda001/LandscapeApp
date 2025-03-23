@@ -1,0 +1,55 @@
+﻿@model LandscapeWebApp.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<div class="min-h-screen bg-gray-50 p-8">
+    <div class="container mx-auto">
+        <!-- Header Section -->
+        <h1 class="text-4xl font-bold text-blue-600 mb-6">📖 Booking Details</h1>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <!-- Booking Details -->
+            <div class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-gray-500 font-medium">📅 Booking Date:</p>
+                        <p class="text-gray-700">@Html.DisplayFor(model => model.BookingDate)</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 font-medium">🔎 Status:</p>
+                        <p class="text-gray-700">@Html.DisplayFor(model => model.Status)</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 font-medium">🕰 Created At:</p>
+                        <p class="text-gray-700">@Html.DisplayFor(model => model.CreatedAt)</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 font-medium">🛎 Service Name:</p>
+                        <p class="text-gray-700">@Html.DisplayFor(model => model.Service.ServiceName)</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 font-medium">📧 User Email:</p>
+                        <p class="text-gray-700">@Html.DisplayFor(model => model.User.Email)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="mt-8 flex space-x-4">
+                <!-- Edit Button with Icon -->
+                <a asp-action="Edit" asp-route-id="@Model.BookingId"
+                   class="bg-blue-500 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-600 transition duration-300">
+                    ✏️ Edit
+                </a>
+
+                <!-- Back to List Button with Icon -->
+                <a asp-action="Index"
+                   class="bg-gray-500 text-white px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-gray-600 transition duration-300">
+                    ⬅️ Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

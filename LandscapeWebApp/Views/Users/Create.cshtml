@@ -1,0 +1,76 @@
+﻿@model LandscapeWebApp.Models.User
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<div class="min-h-screen bg-gray-50 p-8">
+    <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
+        <!-- Header Section -->
+        <h1 class="text-3xl font-bold text-blue-600 mb-4">Create New User</h1>
+        <p class="text-gray-500 mb-6">Fill in the details to create a new user.</p>
+
+        <!-- Form Section -->
+        <form asp-action="Create" class="space-y-4">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4"></div>
+
+            <!-- Name -->
+            <div>
+                <label asp-for="Name" class="block text-gray-700 font-semibold">Name</label>
+                <input asp-for="Name" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <span asp-validation-for="Name" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label asp-for="Email" class="block text-gray-700 font-semibold">Email</label>
+                <input asp-for="Email" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <span asp-validation-for="Email" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Phone -->
+            <div>
+                <label asp-for="Phone" class="block text-gray-700 font-semibold">Phone</label>
+                <input asp-for="Phone" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <span asp-validation-for="Phone" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Address -->
+            <div>
+                <label asp-for="Address" class="block text-gray-700 font-semibold">Address</label>
+                <input asp-for="Address" type="number" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <span asp-validation-for="Address" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Role -->
+            <div>
+                <label asp-for="Role" class="block text-gray-700 font-semibold">Role</label>
+                <input asp-for="Role" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <span asp-validation-for="Role" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Created At -->
+            <div>
+                <label asp-for="CreatedAt" class="block text-gray-700 font-semibold">Created At</label>
+                <input asp-for="CreatedAt" type="datetime-local" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <span asp-validation-for="CreatedAt" class="text-red-500 text-sm"></span>
+            </div>
+            <div>
+                <label asp-for="Password" class="block text-gray-700 font-semibold">Password</label>
+                <input asp-for="Password" type="password" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+                <span asp-validation-for="Password" class="text-red-500 text-sm"></span>
+            </div>
+
+
+            <!-- Submit Button -->
+            <div class="flex justify-between items-center">
+                <input type="submit" value="Create" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300" />
+                <a asp-action="Index" class="text-gray-500 hover:underline">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

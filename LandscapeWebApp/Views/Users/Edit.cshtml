@@ -1,0 +1,84 @@
+﻿@model LandscapeWebApp.Models.User
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="min-h-screen bg-gray-50 p-8 flex items-center justify-center">
+    <div class="max-w-lg w-full bg-white shadow-lg rounded-lg p-6">
+        <!-- Header Section -->
+        <h1 class="text-3xl font-bold text-blue-600 mb-4">Edit User</h1>
+        <p class="text-gray-500 mb-6">Make changes to the user details below.</p>
+
+        <!-- Validation Summary -->
+        <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4"></div>
+
+        <!-- Form Section -->
+        <form asp-action="Edit" class="space-y-4">
+            <input type="hidden" asp-for="UserId" />
+
+            <!-- Name Field -->
+            <div>
+                <label asp-for="Name" class="block text-gray-700 font-semibold">Name</label>
+                <input asp-for="Name" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <span asp-validation-for="Name" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Email Field -->
+            <div>
+                <label asp-for="Email" class="block text-gray-700 font-semibold">Email</label>
+                <input asp-for="Email" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <span asp-validation-for="Email" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Phone Field -->
+            <div>
+                <label asp-for="Phone" class="block text-gray-700 font-semibold">Phone</label>
+                <input asp-for="Phone" type="number" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <span asp-validation-for="Phone" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Address Field -->
+            <div>
+                <label asp-for="Address" class="block text-gray-700 font-semibold">Address</label>
+                <input asp-for="Address" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <span asp-validation-for="Address" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Role Field -->
+            <div>
+                <label asp-for="Role" class="block text-gray-700 font-semibold">Role</label>
+                <input asp-for="Role" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <span asp-validation-for="Role" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- CreatedAt Field -->
+            <div>
+                <label asp-for="CreatedAt" class="block text-gray-700 font-semibold">Created At</label>
+                <input asp-for="CreatedAt" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <span asp-validation-for="CreatedAt" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Password Field -->
+            <div>
+                <label asp-for="Password" class="block text-gray-700 font-semibold">Password</label>
+                <input asp-for="Password" type="password" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <span asp-validation-for="Password" class="text-red-500 text-sm"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex space-x-4">
+                <input type="submit" value="Save" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300 cursor-pointer" />
+
+                <a asp-action="Index"
+                   class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300">
+                    Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,60 @@
+﻿@model LandscapeWebApp.Models.User
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="min-h-screen bg-gray-50">
+    <!-- Sidebar -->
+    <div class="flex">
+        <aside class="w-64 bg-white shadow-lg">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold">Welcome, @Model.Name!</h1>
+                <p class="text-gray-500">@Model.Email</p>
+            </div>
+            <ul class="mt-6">
+                <li class="p-4 hover:bg-gray-100">
+                    <a href="/Account/Dashboard" class="text-blue-500">Dashboard</a>
+                </li>
+                <li class="p-4 hover:bg-gray-100">
+                    <a href="/Account/EditProfile" class="text-gray-700">Edit Profile</a>
+                </li>
+                <li class="p-4 hover:bg-gray-100">
+                    <a href="/Account/Logout" class="text-red-500">Logout</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <h2 class="text-3xl font-semibold mb-6">Your Dashboard</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold">Profile Info</h3>
+                    <p><strong>Name:</strong> @Model.Name</p>
+                    <p><strong>Email:</strong> @Model.Email</p>
+                    <p><strong>Phone:</strong> @Model.Phone</p>
+                    <p><strong>Address:</strong> @Model.Address</p>
+                    <p><strong>Role:</strong> @Model.Role</p>
+                    <p><strong>Member Since:</strong> @Model.CreatedAt.ToShortDateString()</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold">Manage Bookings</h3>
+                    <p>View or manage your landscaping service bookings.</p>
+                    <a href="/Bookings" class="mt-4 inline-block bg-green-500 text-white px-4 py-2 rounded">View Bookings</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold">Need Assistance?</h3>
+                    <p>Contact our support team for any inquiries.</p>
+                    <a href="/Support" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Contact Support</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

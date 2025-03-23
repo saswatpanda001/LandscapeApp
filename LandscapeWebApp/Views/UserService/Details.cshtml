@@ -1,0 +1,33 @@
+﻿@model LandscapeWebApp.Models.Service
+
+@{
+    ViewData["Title"] = "Service Details";
+}
+
+<div class="min-h-screen bg-gray-50 p-8">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-4xl font-bold text-blue-600">@Model.ServiceName</h1>
+        <p class="text-gray-600 mt-4">@Model.Description</p>
+        <p class="text-blue-500 font-bold mt-4">Price: $@Model.Price</p>
+        <p class="text-gray-500">Duration: @Model.Duration mins</p>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <p class="text-green-600 mt-4">@TempData["SuccessMessage"]</p>
+        }
+
+        <div class="mt-6 space-x-4">
+            <!-- Book Now Button -->
+            <a href="/UserService/Book/@Model.ServiceId"
+               class="inline-block px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition duration-300">
+                Book Now
+            </a>
+
+            <!-- Back to Services Button -->
+            <a href="/UserService"
+               class="inline-block px-6 py-2 text-white bg-gray-500 rounded-lg hover:bg-gray-600 transition duration-300">
+                Back to Services
+            </a>
+        </div>
+    </div>
+</div>

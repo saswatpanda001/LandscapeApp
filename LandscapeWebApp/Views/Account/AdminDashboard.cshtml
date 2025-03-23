@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "AdminDashboard";
+}
+
+
+<div class="min-h-screen bg-gray-50">
+    <div class="container mx-auto py-12">
+        <h1 class="text-4xl font-bold text-center text-blue-600">Welcome to Admin Dashboard</h1>
+
+        <!-- Stats Cards -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Total Users -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold text-gray-700">Total Users</h2>
+                <p class="text-4xl text-blue-500 font-bold">@ViewBag.TotalUsers</p>
+            </div>
+
+            <!-- Total Bookings -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold text-gray-700">Total Bookings</h2>
+                <p class="text-4xl text-green-500 font-bold">@ViewBag.TotalBookings</p>
+            </div>
+
+            <!-- Total Services -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold text-gray-700">Total Services</h2>
+                <p class="text-4xl text-purple-500 font-bold">@ViewBag.TotalServices</p>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="mt-12 flex justify-center gap-8">
+            <a href="/Services/Index" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-300">
+                View Services
+            </a>
+
+            <a href="/Bookings/Index" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition duration-300">
+                Manage Bookings
+            </a>
+
+            <a href="/Users/Index" class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition duration-300">
+                Manage Users
+            </a>
+
+            <a href="/Account/Logout" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition duration-300">
+                Logout
+            </a>
+        </div>
+    </div>
+</div>

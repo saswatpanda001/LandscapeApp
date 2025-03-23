@@ -1,0 +1,71 @@
+﻿@model LandscapeWebApp.Models.Booking
+
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="min-h-screen bg-gray-50 p-8">
+    <div class="container mx-auto">
+        <!-- Header Section -->
+        <h1 class="text-3xl font-bold text-blue-600 mb-6">Create Booking</h1>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h4 class="text-xl font-semibold mb-4">Booking Details</h4>
+            <hr class="mb-6" />
+
+            <!-- Form Section -->
+            <form asp-action="Create" class="space-y-6">
+                <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4"></div>
+
+                <!-- User Select -->
+                <div>
+                    <label asp-for="UserId" class="block text-gray-700 font-medium mb-2"></label>
+                    <select asp-for="UserId" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300" asp-items="ViewBag.UserId" required>
+                        <option value="">-- Select User --</option>
+                    </select>
+                    <span asp-validation-for="UserId" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Service Select -->
+                <div>
+                    <label asp-for="ServiceId" class="block text-gray-700 font-medium mb-2"></label>
+                    <select asp-for="ServiceId" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300" asp-items="ViewBag.ServiceId" required>
+                        <option value="">-- Select Service --</option>
+                    </select>
+                    <span asp-validation-for="ServiceId" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Booking Date (No Past Date) -->
+                <div>
+                    <label asp-for="BookingDate" class="block text-gray-700 font-medium mb-2"></label>
+                    <input asp-for="BookingDate" type="date" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300" required min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="BookingDate" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Status (Validation for input text) -->
+                <div>
+                    <label asp-for="Status" class="block text-gray-700 font-medium mb-2"></label>
+                    <input asp-for="Status" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300" maxlength="50" required />
+                    <span asp-validation-for="Status" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Created At (Future Dates Allowed) -->
+                <div>
+                    <label asp-for="CreatedAt" class="block text-gray-700 font-medium mb-2"></label>
+                    <input asp-for="CreatedAt" type="datetime-local" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300" required />
+                    <span asp-validation-for="CreatedAt" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex space-x-4">
+                    <input type="submit" value="Create" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300 cursor-pointer" />
+                    <a asp-action="Index" class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 transition duration-300">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LandscapeWebApp.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="min-h-screen bg-gray-50 p-8">
+    <div class="container mx-auto">
+        <!-- Header Section -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-blue-600">Users</h1>
+            <a asp-action="Create" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Create New</a>
+        </div>
+
+        <!-- Table Section -->
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                <thead class="bg-blue-500 text-white">
+                    <tr>
+                        <th class="py-3 px-6 text-left">Name</th>
+                        <th class="py-3 px-6 text-left">Email</th>
+                        <th class="py-3 px-6 text-left">Phone</th>
+                        <th class="py-3 px-6 text-left">Address</th>
+                        <th class="py-3 px-6 text-left">Role</th>
+                        <th class="py-3 px-6 text-left">Created At</th>
+                        <th class="py-3 px-6 text-left">Password</th>
+                        <th class="py-3 px-6 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="border-b hover:bg-gray-100 transition duration-300">
+                            <td class="py-3 px-6">@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td class="py-3 px-6">@Html.DisplayFor(modelItem => item.Email)</td>
+                            <td class="py-3 px-6">@Html.DisplayFor(modelItem => item.Phone)</td>
+                            <td class="py-3 px-6">@Html.DisplayFor(modelItem => item.Address)</td>
+                            <td class="py-3 px-6">@Html.DisplayFor(modelItem => item.Role)</td>
+                            <td class="py-3 px-6">@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                            <td class="py-3 px-6">@Html.DisplayFor(modelItem => item.Password)</td>
+                            <td class="py-3 px-6 space-x-2">
+                                <a asp-action="Edit" asp-route-id="@item.UserId" class="text-blue-500 hover:underline">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.UserId" class="text-green-500 hover:underline">Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.UserId" class="text-red-500 hover:underline">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

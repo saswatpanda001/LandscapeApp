@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "BookService";
+    var service = ViewBag.Service as LandscapeWebApp.Models.Service;
+}
+
+<div class="min-h-screen bg-gray-50 p-8">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-4xl font-bold text-blue-600">Book @service.ServiceName</h1>
+        <p class="text-gray-600 mt-4">@service.Description</p>
+        <p class="text-blue-500 font-bold mt-4">Price: $@service.Price</p>
+        <p class="text-gray-500">Duration: @service.Duration mins</p>
+
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <p class="text-red-600 mt-4">@ViewBag.ErrorMessage</p>
+        }
+
+        <form method="post" class="mt-8">
+            <label class="block text-gray-700 font-semibold">Select Booking Date:</label>
+            <input type="date" name="bookingDate"
+                   class="w-full p-3 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                   min="@DateTime.Now.ToString("yyyy-MM-dd")"
+                   required />
+
+            <button type="submit"
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 mt-6 rounded-lg">
+                Confirm Booking
+            </button>
+        </form>
+
+        <a href="/UserService/Bookings"
+           class="inline-block mt-6 text-blue-500 hover:text-blue-700">
+            ⬅ Back to Services
+        </a>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model LandscapeWebApp.Models.User
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="min-h-screen bg-gray-50 p-8 flex items-center justify-center">
+    <div class="max-w-lg w-full bg-white shadow-lg rounded-lg p-6">
+        <!-- Header Section -->
+        <h1 class="text-3xl font-bold text-blue-600 mb-4">User Details</h1>
+        <p class="text-gray-500 mb-6">View detailed information about the user.</p>
+
+        <!-- User Details -->
+        <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+                <span class="font-semibold text-gray-700">Name:</span>
+                <span class="text-gray-600">@Html.DisplayFor(model => model.Name)</span>
+
+                <span class="font-semibold text-gray-700">Email:</span>
+                <span class="text-gray-600">@Html.DisplayFor(model => model.Email)</span>
+
+                <span class="font-semibold text-gray-700">Phone:</span>
+                <span class="text-gray-600">@Html.DisplayFor(model => model.Phone)</span>
+
+                <span class="font-semibold text-gray-700">Address:</span>
+                <span class="text-gray-600">@Html.DisplayFor(model => model.Address)</span>
+
+                <span class="font-semibold text-gray-700">Role:</span>
+                <span class="text-gray-600">@Html.DisplayFor(model => model.Role)</span>
+
+                <span class="font-semibold text-gray-700">Created At:</span>
+                <span class="text-gray-600">@Html.DisplayFor(model => model.CreatedAt)</span>
+
+                <span class="font-semibold text-gray-700">Password:</span>
+                <span class="text-gray-600">@Html.DisplayFor(model => model.Password)</span>
+            </div>
+        </div>
+
+        <!-- Actions Section -->
+        <div class="mt-8 flex space-x-4">
+            <a asp-action="Edit" asp-route-id="@Model.UserId"
+               class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">
+                Edit
+            </a>
+
+            <a asp-action="Index"
+               class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>
