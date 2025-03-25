@@ -24,7 +24,7 @@
                         @if (LandscapeWebApp.Services.SessionManager.LoggedInUser != null && LandscapeWebApp.Services.SessionManager.LoggedInUser.Role == "User")
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="AdminDashboard">Home</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Dashboard">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="UserService" asp-action="Index">Services</a>
@@ -49,7 +49,7 @@
                         @if (LandscapeWebApp.Services.SessionManager.LoggedInUser != null && LandscapeWebApp.Services.SessionManager.LoggedInUser.Role == "Admin")
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Dashboard">Home</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="AdminDashboard">Home</a>
                             </li>
 
                             <li class="nav-item">
@@ -72,23 +72,23 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="BulkDeleteBookings">DeleteBookings</a>
                             </li>
                             <li class="nav-item">
-                                <a asp-controller="Report" asp-action="GenerateReport"  class="nav-link text-dark">Download CSV Report</a>
+                                <a asp-controller="Report" asp-action="GenerateReport" class="nav-link text-dark">Download CSV Report</a>
                             </li>
-                      
-                                
+
+
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="/Account/Logout">Logout</a>
                             </li>
-                            }
+                        }
 
-                            @if (LandscapeWebApp.Services.SessionManager.LoggedInUser == null)
-                            {
-                                <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
-                                <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Signup">Signup</a></li>
-                                <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="ResetPassword">ForgotPassword</a></li>
+                        @if (LandscapeWebApp.Services.SessionManager.LoggedInUser == null)
+                        {
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Signup">Signup</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="ResetPassword">ForgotPassword</a></li>
 
-                            }
-                        </ul>
+                        }
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -107,6 +107,14 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
+    <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
 </body>
 </html>

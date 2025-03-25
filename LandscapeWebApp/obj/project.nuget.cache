@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Bcchdc8wl0CBzm3/0wlZR1mJ6g++Tc973ynI20tPbjf4KFpW9yygn4DC+daMFHRmpSIGEruRWREnuXvuDN/77g==",
+  "dgSpecHash": "WopN1e/i4TKXcMqKVJK7kVMVLaVcSaxiDPYab7J0Otep+jzW7lug+C/znFDNHPn0Ri8H9GkSDFKWvylSTFxN2g==",
   "success": true,
   "projectFilePath": "C:\\Users\\saswa\\source\\repos\\LandscapeWebApp\\LandscapeWebApp\\LandscapeWebApp.csproj",
   "expectedPackageFiles": [
@@ -46,7 +46,7 @@
     "C:\\Users\\saswa\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.17\\microsoft.entityframeworkcore.design.5.0.17.nupkg.sha512",
     "C:\\Users\\saswa\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.17\\microsoft.entityframeworkcore.relational.5.0.17.nupkg.sha512",
     "C:\\Users\\saswa\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.17\\microsoft.entityframeworkcore.sqlserver.5.0.17.nupkg.sha512",
-    "C:\\Users\\saswa\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.17\\microsoft.entityframeworkcore.tools.5.0.17.nupkg.sha512",
+    "C:\\Users\\saswa\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.2\\microsoft.entityframeworkcore.tools.5.0.2.nupkg.sha512",
     "C:\\Users\\saswa\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\saswa\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\saswa\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
